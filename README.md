@@ -27,27 +27,27 @@
 | item_name            | string       | null: false                         |
 | item_price           | integer      | null: false                         |
 | item_text            | text         | null: false                         |
-| item_category        | string       | null: false                         |
-| item_status          | string       | null: false                         |
+| category_id          | integer      | null: false                         |
+| status_id            | integer      | null: false                         |
 | item_imege           | string       | null: false                         |
-| delivery_burden      | string       | null: false                         |
-| shipping_area        | string       | null: false                         |
-| Estimated_shipping   | string       | null: false                         |
+| delivery_burden_id   | integer      | null: false                         |
+| shipping_area_id     | integer      | null: false                         |
+| Estimated_shipping_id| integer      | null: false                         |
 
 ### Association
 
 - belongs_to :user
 - has_one :order
-- has_many :transaction
+- has_one :transaction
 
-## orders テーブル
+## addresses テーブル
 
 | Column                           | Type        | Options                            |
 | -------------------------------- | ----------- | ---------------------------------- |
 | user                             | references  | null: false, foreign_key: true     |
 | item                             | references  | null: false, foreign_key: true     |
 | shipping address_postal code     | integer     | null: false                        |
-| Prefectures_id                   | string      | null: false                        |
+| Prefectures_id                   | integer     | null: false                        |
 | shipping address_city            | string      | null: false                        |
 | shipping address_address         | string      | null: false                        |
 | shipping address_building name   | string      |                                    |
