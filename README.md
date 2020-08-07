@@ -5,10 +5,10 @@
 | Column              | Type        | Options          |
 | ------------------- | ----------- | ---------------- |
 | nickname            | string      | null: false      |
-| username_family     | string      | null: false      |
-| username_first      | string      | null: false      |
-| username kana_family| string      | null: false      |
-| username kana_first | string      | null: false      |
+| name_family         | string      | null: false      |
+| name_first          | string      | null: false      |
+| kana_name_family     | string      | null: false      |
+| kana_name_first      | string      | null: false      |
 | email               | string      | null: false      |
 | passwaord           | string      | null: false      |
 | birth               | date        | null: false      |
@@ -24,12 +24,12 @@
 | Column               | Type         | Options                             |
 | -------------------- | ------------ | ----------------------------------- |
 | user                 | references   | null: false, foreign_key: true      |
-| item_name            | string       | null: false                         |
-| item_price           | integer      | null: false                         |
-| item_text            | text         | null: false                         |
+| name                 | string       | null: false                         |
+| price                | integer      | null: false                         |
+| text                 | text         | null: false                         |
 | category_id          | integer      | null: false                         |
 | status_id            | integer      | null: false                         |
-| item_imege           | string       | null: false                         |
+| imege                | string       | null: false                         |
 | delivery_burden_id   | integer      | null: false                         |
 | shipping_area_id     | integer      | null: false                         |
 | Estimated_shipping_id| integer      | null: false                         |
@@ -46,12 +46,12 @@
 | -------------------------------- | ----------- | ---------------------------------- |
 | user                             | references  | null: false, foreign_key: true     |
 | item                             | references  | null: false, foreign_key: true     |
-| shipping address_postal code     | integer     | null: false                        |
+| shipping_address_postal_code     | string      | null: false                        |
 | Prefectures_id                   | integer     | null: false                        |
-| shipping address_city            | string      | null: false                        |
-| shipping address_address         | string      | null: false                        |
-| shipping address_building name   | string      |                                    |
-| shipping address_phone numbe     | string      | null: false                        |
+| shipping_address_city            | string      | null: false                        |
+| shipping_address_address         | string      | null: false                        |
+| shipping_address_building_name   | string      |                                    |
+| shipping_address_phone_numbe     | string      | null: false                        |
 
 ### Association
 
@@ -64,7 +64,6 @@
 | -------------------------------- | ----------- | ---------------------------------- |
 | user                             | references  | null: false, foreign_key: true     |
 | item                             | references  | null: false, foreign_key: true     |
-| message                          | text        | null: false                        |
 
 ### Association
 
