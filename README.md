@@ -7,8 +7,8 @@
 | nickname            | string      | null: false      |
 | name_family         | string      | null: false      |
 | name_first          | string      | null: false      |
-| kana_name_family     | string      | null: false      |
-| kana_name_first      | string      | null: false      |
+| kana_name_family    | string      | null: false      |
+| kana_name_first     | string      | null: false      |
 | email               | string      | null: false      |
 | passwaord           | string      | null: false      |
 | birth               | date        | null: false      |
@@ -16,8 +16,7 @@
 ### Association
 
 - has_many :item
-- has_many :order
-- has_many :transaction
+- has_many :address
 
 ## items テーブル
 
@@ -37,14 +36,13 @@
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :address
 - has_one :transaction
 
 ## addresses テーブル
 
 | Column                           | Type        | Options                            |
 | -------------------------------- | ----------- | ---------------------------------- |
-| user                             | references  | null: false, foreign_key: true     |
 | item                             | references  | null: false, foreign_key: true     |
 | shipping_address_postal_code     | string      | null: false                        |
 | Prefectures_id                   | integer     | null: false                        |
@@ -55,10 +53,9 @@
 
 ### Association
 
-- belongs_to :user
 - belongs_to :item
 
-## transactions テーブル
+## item_purchases テーブル
 
 | Column                           | Type        | Options                            |
 | -------------------------------- | ----------- | ---------------------------------- |
