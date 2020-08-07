@@ -11,12 +11,13 @@
 | username kana_first | string      | null: false      |
 | email               | string      | null: false      |
 | passwaord           | string      | null: false      |
-| birth               | integer     | null: false      |
+| birth               | date        | null: false      |
 
 ### Association
 
 - has_many :item
 - has_many :order
+- has_many :transaction
 
 ## items テーブル
 
@@ -37,6 +38,7 @@
 
 - belongs_to :user
 - has_one :order
+- has_many :transaction
 
 ## orders テーブル
 
@@ -44,15 +46,25 @@
 | -------------------------------- | ----------- | ---------------------------------- |
 | user                             | references  | null: false, foreign_key: true     |
 | item                             | references  | null: false, foreign_key: true     |
-| credit card_number               | integer     | null: false                        |
-| credit card_expiration           | integer     | null: false                        |
-| credit card_security code        | integer     | null: false                        |
 | shipping address_postal code     | integer     | null: false                        |
-| shipping address_prefectures     | string      | null: false                        |
+| Prefectures_id                   | string      | null: false                        |
 | shipping address_city            | string      | null: false                        |
 | shipping address_address         | string      | null: false                        |
 | shipping address_building name   | string      |                                    |
-| shipping address_phone numbe     | integer     | null: false                        |
+| shipping address_phone numbe     | string      | null: false                        |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## transactions テーブル
+
+| Column                           | Type        | Options                            |
+| -------------------------------- | ----------- | ---------------------------------- |
+| user                             | references  | null: false, foreign_key: true     |
+| item                             | references  | null: false, foreign_key: true     |
+| message                          | text        | null: false                        |
 
 ### Association
 
