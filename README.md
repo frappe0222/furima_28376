@@ -16,7 +16,6 @@
 ### Association
 
 - has_many :item
-- has_many :address
 
 ## items テーブル
 
