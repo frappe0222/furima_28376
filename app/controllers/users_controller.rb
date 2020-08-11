@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @nickname = current_user.nickname
+  end
+  
   def create
     if current_user.create(user_params)
       redirect_to root_path
