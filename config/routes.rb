@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'homes/index'
   root "homes#index"
 
-  resources :users, only: :new
+  resources :users
 end
