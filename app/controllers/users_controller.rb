@@ -7,13 +7,14 @@ class UsersController < ApplicationController
   def show
     @nickname = current_user.nickname
   end
-  
+
   def create
-    if current_user.create(user_params)
-      redirect_to root_path
+   if @user.valid?
+      @user.save  # バリデーションをクリアした時
+      return redirect_to root_path
     else
-      render :create
-    end
+      render "new_user_registration_path"    # バリデーションに弾かれ時
+   end
   end
 
   private
