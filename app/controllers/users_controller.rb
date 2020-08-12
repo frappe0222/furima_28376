@@ -22,5 +22,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname,:name_family,:name_first,:kana_name_family,:kana_name_first,:birth )
   end
-
 end
