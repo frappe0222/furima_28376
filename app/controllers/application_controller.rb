@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:name_family,:name_first,:kana_name_family,:kana_name_first,:bath ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:name_family,:name_first,:kana_name_family,:kana_name_first,:birth ])
   end
 
   def create
@@ -12,5 +12,5 @@ class ApplicationController < ActionController::Base
     @post_image.id = current_user.id
     @post_image.save  
  end
- 
+
 end

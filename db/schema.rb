@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_051620) do
     t.string "name_first", null: false
     t.string "kana_name_family", null: false
     t.string "kana_name_first", null: false
-    t.date "bath", null: false
+    t.date "birth", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
