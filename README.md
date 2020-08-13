@@ -31,7 +31,7 @@
 | imege                | string       | null: false                         |
 | delivery_burden_id   | integer      | null: false                         |
 | shipping_area_id     | integer      | null: false                         |
-| Estimated_shipping_id| integer      | null: false                         |
+| estimated_shipping_id| integer      | null: false                         |
 
 ### Association
 
