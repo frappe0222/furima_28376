@@ -13,7 +13,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer       :shipping_area_id,         null: false
       t.integer       :estimated_shipping_id,    null: false
 
-
       t.timestamps
     end
   end
