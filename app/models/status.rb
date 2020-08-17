@@ -7,5 +7,4 @@ class Status < ActiveHash::Base
     { id: 5, name: 'やや傷や汚れあり' },
     { id: 6, name: '傷や汚れあり' },
   ]
-  end
 end

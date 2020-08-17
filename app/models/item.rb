@@ -3,7 +3,13 @@ class Item < ApplicationRecord
   has_one :address
   has_one :item_purchases
   has_one_attached :image
-  belongs_to_active_hash :category,:status,:delivery_burden,:shipping_area,:estimated_shipping
+
+    extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to_active_hash :category
+    belongs_to_active_hash :status
+    belongs_to_active_hash :delivery_burden
+    belongs_to_active_hash :shipping_area
+    belongs_to_active_hash :estimated_shipping
 
   #空の投稿を保存できないようにする
   validates :name,:image,:price,:text,:category,:status,:delivery_burden,:shipping_area,:estimated_shipping, presence: true
