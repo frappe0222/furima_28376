@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :move_to_sign_up, only: [:new]
 
   def index
     #@items = Item.all
@@ -22,6 +23,12 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name,:image,:price,:text,:category_id,:status_id,:delivery_burden_id,:shipping_area_id,:estimated_shipping_id ).merge(user_id: current_user.id)
+  end
+
+  def move_to_sign_up
+    unless user_signed_in?
+      redirect_to new_user_session_path, notice: 'ログインが必要です'
+    end
   end
 
 end
