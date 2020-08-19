@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :user
+  belongs_to :user,optional: true
   has_one :address
   has_one :item_purchases
   has_one_attached :image
@@ -18,7 +18,6 @@ class Item < ApplicationRecord
   validates :category_id,:status_id,:delivery_burden_id,:shipping_area_id,:estimated_shipping_id, numericality: { other_than: 1 } 
 
   #価格が￥300〜¥9,999,999の間であること
-  validates :price, numericality: { only_integer: true,greater_than: 300, less_than: 9999999
-   }
+  validates :price, numericality: { only_integer: true,greater_than: 300, less_than: 9999999}
 
 end
