@@ -18,5 +18,6 @@
       
       const consumption = (value - date)
       tax.innerHTML = consumption
+
      })
    })
