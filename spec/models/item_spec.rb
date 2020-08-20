@@ -77,5 +77,15 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
+
+      it "アクティブハッシュのidが1ではでは登録できないこと" do
+        @item.estimated_shipping_id = "1"
+        @item.shipping_area_id = "1"
+        @item.delivery_burden_id = "1"
+        @item.category_id = "1"
+        @item.status_id = "1"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1", "Status must be other than 1", "Delivery burden must be other than 1", "Shipping area must be other than 1", "Estimated shipping must be other than 1")
+      end
   end
 end

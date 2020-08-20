@@ -1,4 +1,5 @@
 FactoryBot.define do
+
   factory :item do
     user_id                  {'1'}
     name                     {'ワンピース'}
@@ -12,6 +13,7 @@ FactoryBot.define do
     trait :with_imege do
       image { fixture_file_upload Rails.root.join('public', 'images', 'test.png'), 'image/png' }
     end
+    association :user
 
   end
 end
