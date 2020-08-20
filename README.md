@@ -28,10 +28,10 @@
 | text                 | text         | null: false                         |
 | category_id          | integer      | null: false                         |
 | status_id            | integer      | null: false                         |
-| imege                | string       | null: false                         |
+| image                | string       | null: false                         |
 | delivery_burden_id   | integer      | null: false                         |
 | shipping_area_id     | integer      | null: false                         |
-| Estimated_shipping_id| integer      | null: false                         |
+| estimated_shipping_id| integer      | null: false                         |
 
 ### Association
 
