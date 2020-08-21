@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_sign_up, only: [:new]
+  before_action :set_item, only: [:edit, :show, :update]
 
   def index
     #@items = Item.all
@@ -20,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def destroy
@@ -30,10 +30,25 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path(@item)
+    else
+      render "edit" 
+    end
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name,:image,:price,:text,:category_id,:status_id,:delivery_burden_id,:shipping_area_id,:estimated_shipping_id ).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:price,:text,:category_id,:status_id,:delivery_burden_id,:shipping_area_id,:estimated_shipping_id ).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   def move_to_sign_up
