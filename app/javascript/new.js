@@ -7,7 +7,6 @@
     console.log(total_price);
 
     const tax = document.getElementById("tax")
-    console.log(tax);
 
 
 
@@ -18,6 +17,5 @@
       
       const consumption = (value - date)
       tax.innerHTML = consumption
-
-     })
    })
+  })
