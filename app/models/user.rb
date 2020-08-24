@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :trade, class_name:"Transaction"
+  has_one :order
   has_many :item
   
   devise :database_authenticatable, :registerable,
