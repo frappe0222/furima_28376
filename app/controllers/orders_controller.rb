@@ -2,10 +2,14 @@ class OrdersController < ApplicationController
   
   def new
     @item = Item.find(params[:item_id])
+    @orders = AddressOrder.new
   end
 
   def create
-    @order = Order.new(price: order_params[:price])
+    @orders = AddressOrder.new(orders_params) 
+    @orders.save
+
+    @order = Order.new(order_params)
     if @order.valid?
       pay_item
       @order.save
@@ -19,7 +23,13 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:price, :token)
+    binding.pry
+    params.permit(:token)
+  end
+
+  def orders_params
+    #「住所」のキーも追加
+    params.require(:address_order).permit(:postal_code, :Prefectures_id, :address, :city, :building_name, :phone_number)
   end
 
   def pay_item
