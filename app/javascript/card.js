@@ -1,5 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_test_XXXXXXXX"); // PAY.JPテスト公開鍵
+  Payjp.setPublicKey("pk_test_62dede9b89ff00c1ea62c5be"); // PAY.JPテスト公開鍵
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -16,6 +16,7 @@ const pay = () => {
 
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
+        
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;
@@ -28,7 +29,9 @@ const pay = () => {
 
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
+        alert("登録が完了しました"); 
       } else {
+        alert('登録できませんでした')
       }
     });
   });
