@@ -15,6 +15,7 @@ const pay = () => {
     };
 
     Payjp.createToken(card, (status, response) => {
+
       if (status === 200) {
         
         const token = response.id;
@@ -29,7 +30,6 @@ const pay = () => {
 
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
-        alert("登録が完了しました"); 
       } else {
         alert('登録できませんでした')
       }

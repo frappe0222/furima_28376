@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
-  
+  before_action :move_to_new, only: [:new]
+  before_action :move_to_index, only: [:new]
+
   def new
     @item = Item.find(params[:item_id])
     @order = AddressOrder.new
@@ -31,6 +33,18 @@ class OrdersController < ApplicationController
       card: params[:token],    # カードトークン
       currency:'jpy'                 # 通貨の種類(日本円)
     )
+  end
+
+  def move_to_new
+    unless user_signed_in?
+      redirect_to  new_user_session_path
+    end
+  end
+
+  def move_to_index
+    unless user_signed_in? && current_user.id == @item.user_id
+      redirect_to root_path(@item)
+    end
   end
 
 end
