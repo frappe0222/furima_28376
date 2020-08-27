@@ -8,6 +8,5 @@ FactoryBot.define do
     address { '2-6-12' }
     building_name { '大葉マンション' }
     phone_number { '08061211282' }
-
   end
 end
