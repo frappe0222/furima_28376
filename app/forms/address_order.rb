@@ -11,10 +11,10 @@ class AddressOrder
    validates :city
 
     VALID_POST_CODE = /\A[0-9]{3}-[0-9]{4}\z/
-    validates :postal_code, format: {with: VALID_POST_CODE, message: "is invalid. Include hyphen(-)"}
+    validates :postal_code, format: {with: VALID_POST_CODE}
     validates :prefecture_id, numericality: { other_than: 1 }
     VALID_PHONE_NUMBER = /\A\d{11}\z/
-    validates :phone_number, format: {with: VALID_PHONE_NUMBER, message:"ハイフンなしで登録してください"}
+    validates :phone_number, format: {with: VALID_PHONE_NUMBER}
   end
 
   def save
