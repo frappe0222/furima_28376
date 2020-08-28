@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     belongs_to_active_hash :shipping_area
     belongs_to_active_hash :estimated_shipping
 
-  #空の投稿を保存できないようにする
+  #空の投稿を保存できないようにするg
   validates :name,:image,:price,:text,:category,:status,:delivery_burden,:shipping_area,:estimated_shipping, presence: true
 
   #ジャンルの選択が「--」の時は保存できないようにする
