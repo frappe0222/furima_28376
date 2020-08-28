@@ -34,10 +34,6 @@ RSpec.describe AddressOrder, type: :model do
       @address_order.valid?
       expect(@address_order.errors.full_messages).to include("Address can't be blank")
     end
-    it 'building_nameは空でも保存できること' do
-      @address_order.building_name = ""
-      expect(@address_order).to be_valid
-    end
     it 'phone_numberが空だと保存できないこと' do
       @address_order.phone_number = ""
       @address_order.valid?
