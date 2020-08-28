@@ -44,5 +44,10 @@ RSpec.describe AddressOrder, type: :model do
       @address_order.valid?
       expect(@address_order.errors.full_messages).to include("Phone number is invalid")
     end
+    it 'tokenが含まれてないと保存できない' do
+      @address_order.token = ""
+      @address_order.valid?
+      expect(@address_order.errors.full_messages).to include("Token can't be blank")
+    end
   end
 end

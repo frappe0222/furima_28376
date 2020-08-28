@@ -9,6 +9,7 @@ class AddressOrder
     
    validates :address
    validates :city
+   validates :token
 
     VALID_POST_CODE = /\A[0-9]{3}-[0-9]{4}\z/
     validates :postal_code, format: {with: VALID_POST_CODE}
